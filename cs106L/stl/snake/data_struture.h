@@ -2,6 +2,7 @@
 #include <string>
 #include <deque>
 #include <vector>
+#include <cstdlib>
 using namespace std;
 #ifndef DATA_H
 #define DATA_H
@@ -16,5 +17,13 @@ struct Game_board{
     int dx, dy; //direction
     int num_eaten; 
 };
+
+string get_strline();
+
+void load_world(Game_board& game, ifstream& input);
+
+void open_configfile(ifstream& input);
+
+void initialize(Game_board& game);
 
 #endif

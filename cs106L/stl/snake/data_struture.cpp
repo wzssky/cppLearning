@@ -1,14 +1,20 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "untils.h"
+// #include "untils.h"
 #include "data_struture.h"
 using namespace std;
+
+string get_strline(){
+    string result;
+    getline(cin,result);
+    return result;
+}
 
 void open_configfile(ifstream& input){
     while(true){
         cout << " enter filename!" << endl;
-        string filename = getline(); 
+        string filename = get_strline(); 
         input.open(filename.c_str());
         if(input.is_open()) return;
 
@@ -43,13 +49,15 @@ void load_world(Game_board& game, ifstream& input){
 }
 
 void initialize(Game_board& game){
+    srand(static_cast<unsigned int> (time(NULL)));
+
     ifstream input;
     open_configfile(input);
     load_world(game, input);
 }
 
-int main(){
-    Game_board main_game;
-    initialize(main_game);
-}
+// int main(){
+//     Game_board main_game;
+//     initialize(main_game);
+// }
 
